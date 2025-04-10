@@ -42,5 +42,17 @@ function checkWin() {
   );
 }
 
+function resetBtn(){
+    const resetBtn = document.getElementById("resetBtn");
+    resetBtn.addEventListener("click", () => {
+        cells = Array(9).fill("");
+        currentPlayer = "X";
+        gameActive = true;
+        statusText.textContent = `Turn: ${currentPlayer}`;
+    renderBoard();
+});
+
+}
+
 renderBoard();
 statusText.textContent = `Turn: ${currentPlayer}`;
