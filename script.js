@@ -50,8 +50,28 @@ function resetBtn(){
         gameActive = true;
         statusText.textContent = `Turn: ${currentPlayer}`;
     renderBoard();
-});
+    });
+}
 
+function scoreboard(){
+    let scoreX = 0;
+    let scoreO = 0;
+
+    function updateScore() {
+    if (currentPlayer === "X") {
+        scoreX++;
+        document.getElementById("scoreX").textContent = scoreX;
+    } else {
+        scoreO++;
+        document.getElementById("scoreO").textContent = scoreO;
+    }
+    }
+
+    if (checkWin()) {
+        statusText.textContent = `${currentPlayer} wins!`;
+        updateScore(); // Tambahkan ini
+        gameActive = false;
+    }
 }
 
 renderBoard();
